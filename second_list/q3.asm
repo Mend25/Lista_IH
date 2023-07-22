@@ -7,9 +7,9 @@ start:
     jal x1, print
     halt
 print:
-    rem x5, x11, 10
-    sb x5, 1024(x0)
     div x5, x11, 10
+    sb x5, 1024(x0)
+    rem x5, x11, 10
     sb x5, 1024(x0)
     ret
 read:  
