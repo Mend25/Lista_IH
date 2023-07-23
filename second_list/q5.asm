@@ -13,9 +13,9 @@ lw x20, zero
 lw x21, zero
 
 read_a:
+	lb x5, 1025(x0)
 	lw x6, enter
 	beq x5, x6, prep_a
-	lb x5, 1025(x0)
 	addi x7, x7, 1
 	lw x6, neg
 	beq x5, x6, neg_a
@@ -132,7 +132,7 @@ read_b:
 	lw x6, neg
 	beq x5, x6, neg_b
 	lw x6, one
-	beq x6, x8, save_1
+	beq x6, x8, save_1b
 	lw x6, two
 	beq x6, x8, save_2b
 	lw x6, three
