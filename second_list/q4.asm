@@ -9,6 +9,12 @@ start:
     jal x1, result
 
 result:
+	addi x13, x13, 65
+	sb x13, 1024(x0)
+	addi x13, x13, -65
+	addi x12, x12, 65
+	sb x12, 1024(x0)
+	addi x12, x12, -65
     beq x13, x12, empate
     blt x13, x12, jogador2
     jal x0, jogador1
@@ -218,3 +224,4 @@ wm: .word 'W'
 xm: .word 'X'
 ym: .word 'Y'
 zm: .word 'Z'
+
