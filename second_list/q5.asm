@@ -243,9 +243,47 @@ mult:
 	beq x15, x6, print
 	jal x0, mult 
 
+division:
+    lw x17, zero
+    lw x6, ten
+    blt x21, x6, div_stop
+    div_loop:
+    	addi x17, x17, 1
+    	sub x21, x21, x6
+    	bge x21, x6, div_loop
+    div_stop:
+    	bge x17, x6, stack
+    	addi sp, sp, -16
+	 sb x21, 8(sp)
+	 sb x17, 0(sp)
+    	jal x0, print_loop
+
+stack:
+    addi x16, x16, 1
+    addi sp, sp, -8
+    sb x21, 0(sp)
+    lw x21, zero
+    add x21, x21, x17
+   jal x0, division
+
 print:
-	addi x21, x21, 48
-	sb x21, 1024(x0)
+    lw x16, two
+    lw x6, ten
+    lw x7, zero
+    jal x0, division
+
+   print_loop:
+   	 beq x16, x7, end
+    	lb x14, 0(sp)
+    	addi x16, x16, -1
+     addi sp, sp, 8
+	 addi x14, x14, 48
+     sb x14, 1024(x0)
+     jal x0, print_loop
+
+end: 
+	lw x6, enter
+	sb x6, 1024(x0)
 	halt
 
 enter: .word 13
