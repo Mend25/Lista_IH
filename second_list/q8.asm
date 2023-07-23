@@ -5,22 +5,26 @@ loop:
 	lb x7, 1025(x0) # primeiro caractere
 	lw x4, ascii_zero
 	sub x4, x7, x4
-	add x10, x4
+	slli x4, x4, 3
+	add x10, x10, x4
 
 	lb x7, 1025(x0) # segundo caractere
 	lw x4, ascii_zero
 	sub x4, x7, x4
-	add x10, x4
+	slli x4, x4, 2
+	add x10, x10, x4
 
 	lb x7, 1025(x0) # terceiro caractere
 	lw x4, ascii_zero
 	sub x4, x7, x4
-	add x10, x4
+	slli x4, x4, 1
+	add x10, x10, x4
+
 
 	lb x7, 1025(x0) # quarto caractere
 	lw x4, ascii_zero
 	sub x4, x7, x4
-	add x10, x4
+	add x10, x10, x4
 
     lw t0, in_0
 	beq x10, t0, if_zero
@@ -51,7 +55,9 @@ loop:
 	
     lw t0, in_9
 	beq x10, t0, if_nine
-
+	
+	lw t0, in_15
+	beq x10, t0, else
 
     if_zero:
         lw x10, ans_0
@@ -113,6 +119,12 @@ loop:
 		lw x10, seg_g
 		sb x10, 1029(x0)
 		jal x11, loop   
+	else:
+		lw x10, low
+		sb x10, 1027(x0)
+		lw x10, low
+		sb x10, 1029(x0)
+		jal x11, loop 
 
 in_0: .word 0
 in_1: .word 1
@@ -124,6 +136,7 @@ in_6: .word 6
 in_7: .word 7 
 in_8: .word 8 
 in_9: .word 9 
+in_15: .word 15
 
 # seg | pins
 # [a-f] : 8-13
@@ -131,8 +144,8 @@ in_9: .word 9
 
 ans_0: .word 63 
 ans_1: .word 6
-ans_2: .word 51 # has seg 'g'
-ans_3: .word 23 # has seg 'g'
+ans_2: .word 27 # has seg 'g'
+ans_3: .word 15 # has seg 'g'
 ans_4: .word 38 # has seg 'g'
 ans_5: .word 45 # has seg 'g'
 ans_6: .word 61 # has seg 'g'
