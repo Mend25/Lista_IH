@@ -6,7 +6,7 @@ start:
 	l2:	
     halt
 print:
-	addi x11, x11, 65
+	addi x11, x11, 48
 	sb x11, 1024(x0)
     jal x0, l2
 read:  
