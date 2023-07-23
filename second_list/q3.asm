@@ -5,15 +5,28 @@ start:
     jal x1, print
 	l2:	
     halt
+
+division:
+lw x13, zero
+addi x13, x13, x11
+lw x6, ten
+div_loop:
+subi x13, x13, x6
+ble x7, x6, div_finish
+addi x17, x17, 1
+jal x0, div_loop
+div_finish:
+jal x0, post_div
+
 print:
     lw x6, ten
-    div x5, x11, x6
-    mul x13, x5, x6
-    sub x7, x11, x13
-	addi x5, x5, 48
-    addi x7, x7, 48
-    beqz x7, if0
-	sb x7, 1024(x0)
+    jal x0, division
+    post_div:
+    addi x13, x13, 48
+    addi x17, x17, 48
+    lw x14, zero
+    beq x14, x7, if0
+    sb x7, 1024(x0)
     if0:
     sb x5, 1024(x0)
     jal x0, l2
