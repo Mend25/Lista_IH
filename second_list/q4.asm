@@ -71,13 +71,39 @@ jogador1:
     sb x16, 1024(x0)
     halt
 
+division:
+    lw x17, zero
+    lw x15, zero
+    add x15, x15, x12
+    lw x6, ten
+    blt x15, x6, div_stop
+    div_loop:
+    addi x17, x17, 1
+    sub x15, x15, x6
+    bge x11, x6, div_loop
+    div_stop:
+    jal x0, post_div
+
+print:
+    lw x6, ten
+    lw x16, zero
+    jal x0, division
+    post_div:
+    addi x15, x15, 48
+    addi x17, x17, 48
+    lw x14, zero
+    beq x14, x17, if0
+    sb x17, 1024(x0)
+    if0:
+    sb x15, 1024(x0)
+    beq x13, x16, l1
+    jal x0, l2
+
 read_player:  
     lb x10, 1025(x0)
-	lw x7, enter
-    lw x17, zero
+    lw x7, enter
     bne x10, x7, point1
-    beq x13, x17, l1
-    jal x0, l2
+    jal x0, print
 point1:
     lw x6, am
     beq x10, x6, p1_end
