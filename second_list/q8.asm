@@ -1,42 +1,57 @@
 loop:
-	# lh x10, 1031(x0)
+
+	lw x10, low # apenas zerando
+
+	lb x7, 1025(x0) # primeiro caractere
+	lw x4, ascii_zero
+	sub x4, x7, x4
+	add x10, x4
+
+	lb x7, 1025(x0) # segundo caractere
+	lw x4, ascii_zero
+	sub x4, x7, x4
+	add x10, x4
+
+	lb x7, 1025(x0) # terceiro caractere
+	lw x4, ascii_zero
+	sub x4, x7, x4
+	add x10, x4
+
+	lb x7, 1025(x0) # quarto caractere
+	lw x4, ascii_zero
+	sub x4, x7, x4
+	add x10, x4
 
     lw t0, in_0
-	blt x10, t0, if_zero
+	beq x10, t0, if_zero
 
 	lw t0, in_1
-	blt x10, t0, if_one
+	beq x10, t0, if_one
 	
     lw t0, in_2
-	blt x10, t0, if_two
+	beq x10, t0, if_two
 	
     lw t0, in_3
-	blt x10, t0, if_three
+	beq x10, t0, if_three
 	
 	lw t0, in_4
-	blt x10, t0, if_four
+	beq x10, t0, if_four
 	
     lw t0, in_5
-	blt x10, t0, if_five
+	beq x10, t0, if_five
 	
     lw t0, in_6
-	blt x10, t0, if_six
+	beq x10, t0, if_six
 
     lw t0, in_7
-	blt x10, t0, if_seven
+	beq x10, t0, if_seven
 	
     lw t0, in_8
-	blt x10, t0, if_eight
+	beq x10, t0, if_eight
 	
     lw t0, in_9
-	blt x10, t0, if_nine
+	beq x10, t0, if_nine
 
-	# else 
-	lw x10, low
-	sb x10, 1027(x0)
-	lw x10, low
-	sb x10, 1029(x0)
-	jal x11, loop 
 
     if_zero:
         lw x10, ans_0
@@ -127,3 +142,5 @@ ans_9: .word 47 # has seg 'g'
 
 seg_g: .word 1
 low: .word 0
+
+ascii_zero: .word '0'
