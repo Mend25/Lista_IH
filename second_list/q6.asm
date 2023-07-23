@@ -212,3 +212,5 @@ end:
 enter: .word 13
 zero: .word 0
 one: .word 1
+two: .word 2
+ten: .word 10
