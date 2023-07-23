@@ -19,23 +19,23 @@ count:
 is_vog:
     lw x6, a
     beq x10, x6, vog
-    lw x6, b
-    beq x10, x6, vog
-    lw x6, c
-    beq x10, x6, vog
-    lw x6, d
-    beq x10, x6, vog
     lw x6, e
+    beq x10, x6, vog
+    lw x6, i
+    beq x10, x6, vog
+    lw x6, o
+    beq x10, x6, vog
+    lw x6, u
     beq x10, x6, vog
     lw x6, am
     beq x10, x6, vog
-    lw x6, bm
-    beq x10, x6, vog
-    lw x6, cm
-    beq x10, x6, vog
-    lw x6, dm
-    beq x10, x6, vog
     lw x6, em
+    beq x10, x6, vog
+    lw x6, im
+    beq x10, x6, vog
+    lw x6, om
+    beq x10, x6, vog
+    lw x6, um
     beq x10, x6, vog
     jal x0, read
 vog:
