@@ -7,19 +7,24 @@ loop:
 	lw t0, first_case
 	blt x10, t0, if_one
 	
+    # lh x10, 1031(x0)
 	lw t0, second_case
 	blt x10, t0, if_two
 	
+	# lh x10, 1031(x0)
 	lw t0, third_case
 	blt x10, t0, if_three
 	
+	# lh x10, 1031(x0)
 	lw t0, fourth_case
 	blt x10, t0, if_four
 
+	# lh x10, 1031(x0)
 	lw t0, fifth_case
 	blt x10, t0, if_five
 
 	# else 
+	# manda via serial o ultimo caso
 	lw x10, HIGH6
 	sb x10, 1029(x0)
 	lw x10, LOW
@@ -70,6 +75,3 @@ HIGH4: .word 48
 HIGH5: .word 48
 HIGH6: .word 3
 LOW: .word 0
-
-# ordem dos pinos da esquerda: 8,9,10,11,12,13
-# ordem dos pinos da direita: 2,3,4,5,6,7
