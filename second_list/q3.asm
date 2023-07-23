@@ -7,16 +7,16 @@ start:
     halt
 
 division:
-lw x13, zero
-addi x13, x13, x11
-lw x6, ten
-div_loop:
-subi x13, x13, x6
-ble x7, x6, div_finish
-addi x17, x17, 1
-jal x0, div_loop
-div_finish:
-jal x0, post_div
+	lw x13, zero
+	addi x13, x13, x11
+	lw x6, ten
+	div_loop:
+	subi x13, x13, x6
+	ble x7, x6, div_finish
+	addi x17, x17, 1
+	jal x0, div_loop
+	div_finish:
+	jal x0, post_div
 
 print:
     lw x6, ten
