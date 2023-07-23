@@ -31,6 +31,7 @@ read_a:
 
 neg_a:
 	addi x7, x7, -1
+	addi x27, x27, 1
 	jal x0, read_a
 
 save_1:
@@ -143,6 +144,7 @@ read_b:
 
 neg_b:
 	addi x8, x8, -1
+	addi x26, x26, 1
 	jal x0, read_b
 
 save_1b:
@@ -270,6 +272,10 @@ print:
     lw x16, two
     lw x6, ten
     lw x7, zero
+	lw x28, neg
+	xor x26, x26, x27
+	beq x26, x7, division
+	sb x28, 1024(x0)
     jal x0, division
 
    print_loop:
