@@ -7,26 +7,24 @@ start:
     halt
 
 division:
-	lw x13, zero
 	lw x17, zero
 	addi x17, x17, -1
-	addi x13, x13, x11
 	lw x6, ten
 	div_loop:
 	addi x17, x17, 1
-	subi x13, x13, x6
-	bge x13, x6, div_loop
+	sub x11, x11, x6
+	bge x11, x6, div_loop
 	jal x0, post_div
 
 print:
     lw x6, ten
     jal x0, division
     post_div:
-    addi x13, x13, 48
+    addi x11, x11, 48
     addi x17, x17, 48
     lw x14, zero
-    beq x14, x7, if0
-    sb x7, 1024(x0)
+    beq x14, x17, if0
+    sb x17, 1024(x0)
     if0:
     sb x5, 1024(x0)
     jal x0, l2
