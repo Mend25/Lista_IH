@@ -4,17 +4,12 @@ start:
     jal x0, read_player
     l1:
     add x13, x13, x12
+    lw x12, zero
     jal x0, read_player
     l2:
     jal x1, result
 
 result:
-	addi x13, x13, 65
-	sb x13, 1024(x0)
-	addi x13, x13, -65
-	addi x12, x12, 65
-	sb x12, 1024(x0)
-	addi x12, x12, -65
     beq x13, x12, empate
     blt x13, x12, jogador2
     jal x0, jogador1
