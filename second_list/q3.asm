@@ -8,9 +8,8 @@ start:
 
 division:
 	lw x17, zero
-	addi x17, x17, -1
 	lw x6, ten
-    bge x11, x6, div_stop
+    blt x11, x6, div_stop
 	div_loop:
 	addi x17, x17, 1
 	sub x11, x11, x6
@@ -28,7 +27,7 @@ print:
     beq x14, x17, if0
     sb x17, 1024(x0)
     if0:
-    sb x5, 1024(x0)
+    sb x11, 1024(x0)
     jal x0, l2
 read:  
     lb x10, 1025(x0)
