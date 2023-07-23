@@ -80,7 +80,7 @@ division:
     div_loop:
     addi x17, x17, 1
     sub x15, x15, x6
-    bge x11, x6, div_loop
+    bge x15, x6, div_loop
     div_stop:
     jal x0, post_div
 
