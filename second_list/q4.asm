@@ -34,6 +34,7 @@ jogador2:
     lw x16, jm
     sb x16, 1024(x0)
     lw x16, two
+    addi x16, x16, 48
     sb x16, 1024(x0)
     lw x16, space
     sb x16, 1024(x0)
@@ -53,6 +54,7 @@ jogador1:
     lw x16, jm
     sb x16, 1024(x0)
     lw x16, one
+    addi x16, x16, 48
     sb x16, 1024(x0)
     lw x16, space
     sb x16, 1024(x0)
