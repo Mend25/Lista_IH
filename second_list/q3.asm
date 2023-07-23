@@ -10,7 +10,7 @@ division:
 	lw x17, zero
 	addi x17, x17, -1
 	lw x6, ten
-    bge x11, x6 div_stop
+    bge x11, x6, div_stop
 	div_loop:
 	addi x17, x17, 1
 	sub x11, x11, x6
