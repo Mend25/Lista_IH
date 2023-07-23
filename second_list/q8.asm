@@ -41,7 +41,7 @@ loop:
     if_zero:
         lw x10, ans_0
 		sb x10, 1027(x0)
-		lw x10, seg_g
+		lw x10, low
 		sb x10, 1029(x0)
 		jal x11, loop 
 	if_one:
@@ -114,16 +114,16 @@ in_9: .word 9
 # [a-f] : 8-13
 # g : 2
 
-ans_0: .word 0 # has seg 'g' 
-ans_1: .word 0
-ans_2: .word 0 # has seg 'g'
-ans_3: .word 0 # has seg 'g'
-ans_4: .word 0 # has seg 'g'
-ans_5: .word 0 # has seg 'g'
-ans_6: .word 0 # has seg 'g'
-ans_7: .word 0 
-ans_8: .word 0 # has seg 'g'
-ans_9: .word 0 # has seg 'g'
+ans_0: .word 63 
+ans_1: .word 6
+ans_2: .word 51 # has seg 'g'
+ans_3: .word 23 # has seg 'g'
+ans_4: .word 38 # has seg 'g'
+ans_5: .word 45 # has seg 'g'
+ans_6: .word 61 # has seg 'g'
+ans_7: .word 7 
+ans_8: .word 63 # has seg 'g'
+ans_9: .word 47 # has seg 'g'
 
 seg_g: .word 1
 low: .word 0
