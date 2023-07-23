@@ -42,7 +42,6 @@ vog:
     addi x12, x12, 1 #contador de vogais
     jal x0, read
 
-0x40000: .asciz "aeiouAEIOU"
 zero: .word 0
 ten: .word 10
 enter: .word 13
