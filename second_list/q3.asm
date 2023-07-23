@@ -10,7 +10,8 @@ print:
 	sb x11, 1024(x0)
     jal x0, l2
 read:  
-    lw x5, vogais
+    auipc x5, vogais[31:12]
+    addi x5, x5, vogais[11:0]
     lb x10, 1025(x0)
 	lw x7, enter
     bne x10, x7, count
