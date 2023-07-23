@@ -96,6 +96,8 @@ print:
     sb x17, 1024(x0)
     if0:
     sb x15, 1024(x0)
+    lw x15, enter
+    sb x15, 1024(x0)
     beq x13, x16, l1
     jal x0, l2
 
