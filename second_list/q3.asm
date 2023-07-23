@@ -6,8 +6,16 @@ start:
 	l2:	
     halt
 print:
-	addi x11, x11, 48
-	sb x11, 1024(x0)
+    lw x6, ten
+    div x5, x11, x6
+    mul x13, x5, x6
+    sub x7, x11, x13
+	addi x5, x5, 48
+    addi x7, x7, 48
+    beqz x7, if0
+	sb x7, 1024(x0)
+    if0:
+    sb x5, 1024(x0)
     jal x0, l2
 read:  
     lb x10, 1025(x0)
