@@ -15,57 +15,57 @@ result:
 
 empate:
     lw x16, em
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, mm
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, pm
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, am
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, tm
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, em
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, enter
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     halt
 
 jogador2:
     lw x16, jm
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, two
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, space
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, wm
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, im
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, nm
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, sm
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, enter
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     halt
 
 jogador1:
     lw x16, jm
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, one
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, space
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, wm
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, im
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, nm
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, sm
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     lw x16, enter
-    sd x16, 1024(x0)
+    sb x16, 1024(x0)
     halt
 
 read_player:  
