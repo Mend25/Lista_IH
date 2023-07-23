@@ -10,8 +10,7 @@ print:
 	sb x11, 1024(x0)
     jal x0, l2
 read:  
-    auipc x5, vogais[31:12]
-    addi x5, x5, vogais[11:0]
+    lui x5, 0x40000
     lb x10, 1025(x0)
 	lw x7, enter
     bne x10, x7, count
@@ -30,7 +29,7 @@ vog:
     addi x12, x12, 1 #contador de vogais
     jal x0, read
 
-vogais: .asciz "aeiouAEIOU"
+0x40000: .asciz "aeiouAEIOU"
 zero: .word 0
 ten: .word 10
 enter: .word 13
